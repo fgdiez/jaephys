@@ -1,0 +1,18 @@
+
+Jaephys
+=========
+author: Federico G. Diez <fedegdiez@hotmail.com>
+Home Page: <URL:http://jaephys.sourceforge.net>
+
+
+License
+=======
+Jaephys is free software available under the terms of the GNU Public License.
+Refer to the file COPYING (which should be included in this distribution) for
+the specific terms of this license.
+
+
+Requirements
+============
+Jaephys requires GL(tested with Mesa and xlibmesa), GLUT and SVGALIB.
+
