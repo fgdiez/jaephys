@@ -37,10 +37,15 @@ CollisionDetection::CollisionDetection( Entity& entity1,
                                         RelativePosition relativePos1 )
  : relativePos1_(relativePos1)
 {
-  shape1_ = entity1.findAttribute<Shape, PolygonalShape>( "Shape");
-	GUARANTEE(shape1_, "Shape1 not found");
-  shape2_ = entity2.findAttribute<Shape, PolygonalShape>( "Shape");
-	GUARANTEE(shape2_, "Shape2 not found");
+  shape1_ = dynamic_cast< PolygonalShape* >(
+      entity1.findAttribute< Shape >( "Shape") );
+
+  GUARANTEE(shape1_, "Shape1 not found");
+  
+  shape2_ = dynamic_cast< PolygonalShape* >( 
+      entity2.findAttribute< Shape >( "Shape") );
+
+  GUARANTEE(shape2_, "Shape2 not found");
 }
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -35,8 +35,11 @@ ImpulsiveCollision::ImpulsiveCollision( Entity& entity1,
 																				const Collision & collision )
 	: collision_(collision)
 {
-  shape1_ = entity1.findAttribute<Shape,PolygonalShape>("Shape");
-  shape2_ = entity2.findAttribute<Shape,PolygonalShape>("Shape");
+  shape1_ = dynamic_cast< PolygonalShape* >(
+      entity1.findAttribute< Shape >("Shape") );
+
+  shape2_ = dynamic_cast< PolygonalShape* >(
+      entity2.findAttribute< Shape >("Shape") );
   
   m1_= entity1.findAttribute<double>( "Mass");
   m2_= entity2.findAttribute<double>( "Mass");

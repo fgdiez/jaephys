@@ -76,13 +76,13 @@ void FDisplay::createDisplay3D(ParseTree& tree)
 	  }
 	  else if(child->token_ == "width")
 	  {
-	    std::strstream ss;
+	    std::stringstream ss;
 	    ss << child->value_;
 	    ss >> width;
 	  }
 	  else if(child->token_ == "height")
 	  {
-	    std::strstream ss;
+	    std::stringstream ss;
 	    ss << child->value_;
 	    ss >> height;
 	  }

@@ -23,7 +23,7 @@
 #include "Demiurge.hpp"
 #include "Display3D.hpp"
 #include "debugging.h"
-#include <vga.h>
+//#include <vga.h>
 
 using namespace jaephys;
 
@@ -39,7 +39,9 @@ void Keyboard::registerCallback(int key, Function* callback)
 //////////////////////////////////////////////////////////////////////////////
 void Keyboard::getKey()
 {
-  int key = vga_getkey();
+  //int key = vga_getkey();
+  int key = 'k';
+
   if(key != 0)
   {
     Keyboard::doCallback(key);

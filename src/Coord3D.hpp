@@ -25,7 +25,7 @@
 
 #include "auxiliary.hpp"
 
-#include <strstream>
+#include <sstream>
 #include <iostream>
 #include <string>
 
@@ -71,7 +71,7 @@ namespace jaephys
   {
     bool operator()(const Coord3D & a, const Coord3D & b)
     {
-      std::strstream s1, s2;
+      std::stringstream s1, s2;
       s1 << a;
       s2 << b;
       return s1 == s2;

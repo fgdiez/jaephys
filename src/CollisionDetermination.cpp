@@ -36,10 +36,15 @@ CollisionDetermination::CollisionDetermination( Entity & e1,
  , relPos1_(relPos)
  , relPos2_(getComplementary(relPos))
 {
-  shape1_= e1.findAttribute<Shape,PolygonalShape>("Shape");
-	GUARANTEE(shape1_, "Shape 1 not found");
-  shape2_= e2.findAttribute<Shape,PolygonalShape>("Shape");
-	GUARANTEE(shape2_, "Shape 2 not found");
+  shape1_= dynamic_cast< PolygonalShape* >(
+      e1.findAttribute< Shape >( "Shape" ) );
+
+  GUARANTEE(shape1_, "Shape 1 not found");
+  
+  shape2_= dynamic_cast< PolygonalShape* >(
+      e2.findAttribute< Shape >( "Shape" ) );
+
+  GUARANTEE(shape2_, "Shape 2 not found");
 
   v1_= e1.findAttribute<Coord3D>( "LinearVelocity");
 	GUARANTEE(v1_, "LinearVelocity 1 not found");

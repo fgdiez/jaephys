@@ -30,7 +30,9 @@ using namespace jaephys;
 WireAppearence::WireAppearence ( Entity & entity )
 	: display3D_( Display3D::getCurrent() )
 {
-  shape_= entity.findAttribute<Shape,PolygonalShape>( "Shape" );
+  shape_= dynamic_cast< PolygonalShape* >(
+      entity.findAttribute< Shape >( "Shape" ) );
+
   GUARANTEE( shape_ != 0, "Shape poligonal no encontrada" );
 
   color_ = entity.findAttribute<Coord3D>( "Color" );

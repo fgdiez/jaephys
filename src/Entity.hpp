@@ -35,26 +35,26 @@ namespace jaephys
   class Entity
   {
   public:
-		Entity();
+    Entity();
     Entity( const std::vector<Attribute* >& vAttrib, 
-						Algorithm* visualization, 
-						AnimationAlgorithm* animation );
+	    Algorithm* visualization, 
+	    AnimationAlgorithm* animation );
 
     ~Entity();
     
-		void addAttribute( Attribute* attrib );
-		void setAppearence( Algorithm* appearence );
-		void setAnimation( AnimationAlgorithm* animation );
+    void addAttribute( Attribute* attrib );
+    void setAppearence( Algorithm* appearence );
+    void setAnimation( AnimationAlgorithm* animation );
 
     void visualize() const;
     void animate();
     void animationFactor(const double factor);    
 
-		template <class T>
-		T* findAttribute( const char* concept);
+    template <class T>
+    T* findAttribute( const char* concept);
 
-		template <class Base, class T>
-		T* findAttribute( const char* concept);
+    //template <class Base, class T>
+    //T* findAttribute( const char* concept);
 
   protected:
 
@@ -71,13 +71,13 @@ namespace jaephys
   // inline
   /////////////////////////////////////////////////////////////////////////////
   template <class T> inline 
-  T* Entity::findAttribute( const char* concept)
+  T* Entity::findAttribute( const char* concept )
   {
     Attribute* attr;
-    for(unsigned int i=0; i< vAttrib_.size(); ++i)
+    for( unsigned int i=0; i< vAttrib_.size(); ++i )
     {
       attr = vAttrib_[i];
-      if(attr->concept() == concept)
+      if( attr->concept() == concept )
       {
         TAttribute<T>* target = dynamic_cast< TAttribute<T>* >(attr);
 
@@ -94,8 +94,9 @@ namespace jaephys
     return 0;
   }
 
-		template <class Base, class T> inline
-		T* Entity::findAttribute( const char* concept)
+  /*
+    template <class Base, class T> inline
+    T* Entity::findAttribute( const char* concept)
     {
       Base* base = findAttribute<Base>(concept);
       T* target= 0;
@@ -107,6 +108,7 @@ namespace jaephys
       }
       return target;
     }
+  */
 }
 
 #endif //JAEPHYS_ENTITY_HPP

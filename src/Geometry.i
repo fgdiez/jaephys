@@ -59,7 +59,7 @@ jaephys::absolute( double value)
 
 // comparisons with error margin
 inline bool 
-jaephys::areEqual( double a, double b, double error= ERROR_MARGIN)
+jaephys::areEqual( double a, double b, double error )
 {
 	return absolute(a - b) <= error;
 }

@@ -200,10 +200,10 @@ void FInteraction::getEntities( const std::string     & ids,
 }
 
 void FInteraction::createCollisionCombinations( std::vector<Entity*> & vEntity, 
-																								std::vector<Interaction*> & vInter,
-																								std::string & type,
-																								RelativePosition relPos,
-																								unsigned int index=0 )
+												std::vector<Interaction*> & vInter,
+												std::string & type,
+												RelativePosition relPos,
+												unsigned int index )
 {
   TRACEC(JAEPHYS_INTER,2,"enter");
   for( unsigned int i=index+1; i< vEntity.size(); ++i)

@@ -29,7 +29,9 @@ using namespace jaephys;
 PunkWireAppearence::PunkWireAppearence( Entity & entity )
  : display3D_( Display3D::getCurrent() )
 {
-  shape_= entity.findAttribute<Shape, PolygonalShape>( "Shape" );
+  shape_= dynamic_cast< PolygonalShape* >(
+      entity.findAttribute< Shape >( "Shape" ) );
+
   GUARANTEE(shape_!=0,"PolygonalShape not found");
 
   color_ = entity.findAttribute<Coord3D>( "Color" );
