@@ -34,6 +34,7 @@
 #include "debugging.h"
 //#include "cronos.h"
 
+#include <time.h>
 #include <GL/glut.h>
 
 using namespace jaephys;
@@ -48,7 +49,7 @@ std::vector<Entity* > Demiurge::vEntity_;
 std::vector<Interaction* > Demiurge::vInter_;
 bool Demiurge::pause_= false;
 int Demiurge::fps_; // frames per second
-int Demiurge::ipf_; // iterations per fram
+int Demiurge::ipf_; // iterations per frame
 int Demiurge::ips_; // iterations per second
 int Demiurge::cpf_; // tics per frame
 
@@ -134,6 +135,7 @@ void Demiurge::beginSimulation()
   fps_ = JAEPHYS_FPS;
   ips_ = ipf_*fps_;
   cpf_ = static_cast<int> ( static_cast<double>(CLOCKS_PER_SEC) / fps_ );
+
   
   setAnimationFactor( static_cast<double>(1) / ips_ );
   

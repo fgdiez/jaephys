@@ -24,6 +24,7 @@
 #define JAEPHYS_DEPURACION_H
 
 #include <iostream>
+#include <stdlib.h>
 
 static int TRACE_LEVEL 
  = (getenv("TRACE_LEVEL") != NULL) ? atoi(getenv("TRACE_LEVEL")): 0;

@@ -25,11 +25,13 @@ CC=g++
 SRC=.
 OBJ=.obj
 BIN=../bin
-LIB=../lib
-MKDIR=$(BIN) $(LIB) $(OBJ)
-LIBD=-L/usr/X11R6/lib -lstdc++ -lGL -lglut -lGLU
+MKDIR=$(BIN) $(OBJ)
+
+LIBD= -lglut32 -lopengl32 -lglu32 
 
 OBJS=$(OBJ)/Algorithm.o $(OBJ)/ParseTree.o $(OBJ)/Edge.o $(OBJ)/Vertex.o $(OBJ)/Polygon.o $(OBJ)/PolygonalShape.o $(OBJ)/Coord3D.o $(OBJ)/Shape.o $(OBJ)/Geometry.o $(OBJ)/Entity.o $(OBJ)/auxiliary.o $(OBJ)/ConstantVelocityMotion.o $(OBJ)/RotationTranslationMotion.o $(OBJ)/AcceleratedMotion.o $(OBJ)/FreeRigidBodyMotion.o $(OBJ)/Display3D.o $(OBJ)/FlatColorAppearence.o $(OBJ)/WireAppearence.o $(OBJ)/PunkWireAppearence.o $(OBJ)/FEntity.o $(OBJ)/Interaction.o $(OBJ)/Display3D_gl.o $(OBJ)/FDisplay.o $(OBJ)/ParticleCollision.o $(OBJ)/Keyboard.o $(OBJ)/Parser.o $(OBJ)/Demiurge.o $(OBJ)/CollisionDetection.o $(OBJ)/Gravitation.o $(OBJ)/FInteraction.o $(OBJ)/CollisionDetermination.o $(OBJ)/jae.o $(OBJ)/ImpulsiveCollision.o
+
+all: $(BIN)/jae
 
 $(BIN)/jae: $(MKDIR) $(OBJS)
 	$(CC) $(OBJS) $(LIBD) -o $(BIN)/jae
@@ -38,11 +40,10 @@ $(OBJ):
 	mkdir $(OBJ)
 $(BIN):
 	mkdir $(BIN)
-$(LIB):
-	mkdir $(LIB)
+
 
 clean:
-	rm -f $(OBJ)/*; rm -f $(BIN)/*; rm -f $(LIB)/*
+	rm -f $(OBJ)/*; rm -f $(BIN)/jae
 
 $(OBJ)/%.o: %.cpp %.hpp
 	$(CC) $(CPPFLAGS) -c $< -o $@
