@@ -35,6 +35,11 @@ Edge::Edge()
 {
 }
 
+Edge::Edge(std::vector<Vertex>* vPoint, std::vector<Polygon>* vPol) 
+	: vPoint_( vPoint ),
+		vPol_( vPol )
+{}
+
 ///////////////////////////////////////////////////////////////////////////////
 Edge &
 Edge::operator= ( const Edge & other)
@@ -80,21 +85,21 @@ Edge::operator==(const Edge & other) const
 
 
 ///////////////////////////////////////////////////////////////////////////////
-const Coord3d & 
+const Coord3D & 
 Edge::end1() const
 {
   return ((*vPoint_)[iEnd1_]).point;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-const Coord3d & 
+const Coord3D & 
 Edge::end2() const
 {
   return ((*vPoint_)[iEnd2_]).point;
 }
  
 ///////////////////////////////////////////////////////////////////////////////
-const Coord3d &
+const Coord3D &
 Edge::direction()
 {
 	updateDirection();
@@ -111,12 +116,12 @@ Edge::updateDirection()
 // Description:
 //   considering the edge as a fold in the surface defined by the two
 //   polygons which joints it returns the normal vector of this surface
-const Coord3d & 
+const Coord3D & 
 Edge::normal()
 {
   assert(vPol_ != 0);
   normal_.assignAddition( ((*vPol_)[iPol1_]).normal()
-                        , ((*vPol_)[iPol1_]).normal()
+                        , ((*vPol_)[iPol2_]).normal()
                         );
   return normal_;
 }
@@ -126,19 +131,19 @@ Edge::normal()
 //   given a point contained in the line which defines the edge, it return
 //   if the point belongs to the edge
 bool 
-Edge::contains( const Coord3d & point, double error)
+Edge::contains( const Coord3D & point, double error)
 {
 	updateDirection();
-  if( isPlaneInsidePoint(direction_, end2(), point, error) == NO ||
-      isPlaneInsidePoint(direction_, end1(), point, error) == YES)
+  if( isInsideThePlane(direction_, end2(), point, error) == NO ||
+      isInsideThePlane(direction_, end1(), point, error) == YES)
 		return false;
 
 	return true;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-ostream &
-jaephys::operator<< ( ostream & os, const Edge & edge)
+std::ostream &
+jaephys::operator<< ( std::ostream & os, const Edge & edge)
 {
   os << "(" << edge.end1() << ", " << edge.end2() << ")";
   return os;

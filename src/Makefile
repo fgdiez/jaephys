@@ -20,15 +20,19 @@
 ##############################################################################
 
 
-CPPFLAGS=-W -Wall -pipe -g
-CC=g++
+CPPFLAGS=-W -Wall -pipe -O3 -march=athlon
+CC=g++-3.0
 SRC=.
 OBJ=.obj
 BIN=../bin
 LIB=../lib
 MKDIR=$(BIN) $(LIB) $(OBJ)
+LIBD=-lstdc++ -lGL -lglut -lvga
 
-ALL: $(MKDIR) $(OBJ)/Algorithm.o $(OBJ)/ParseTree.o $(OBJ)/Edge.o $(OBJ)/Vertex.o $(OBJ)/Polygon.o $(OBJ)/PolygonalShape.o $(OBJ)/Coord3d.o $(OBJ)/Shape.o
+OBJS=$(OBJ)/Algorithm.o $(OBJ)/ParseTree.o $(OBJ)/Edge.o $(OBJ)/Vertex.o $(OBJ)/Polygon.o $(OBJ)/PolygonalShape.o $(OBJ)/Coord3D.o $(OBJ)/Shape.o $(OBJ)/Geometry.o $(OBJ)/Entity.o $(OBJ)/auxiliary.o $(OBJ)/ConstantVelocityMotion.o $(OBJ)/RotationTranslationMotion.o $(OBJ)/AcceleratedMotion.o $(OBJ)/FreeRigidBodyMotion.o $(OBJ)/Display3D.o $(OBJ)/FlatColorAppearence.o $(OBJ)/WireAppearence.o $(OBJ)/PunkWireAppearence.o $(OBJ)/FEntity.o $(OBJ)/Interaction.o $(OBJ)/Display3D_gl.o $(OBJ)/FDisplay.o $(OBJ)/ParticleCollision.o $(OBJ)/Keyboard.o $(OBJ)/Parser.o $(OBJ)/Demiurge.o $(OBJ)/CollisionDetection.o $(OBJ)/Gravitation.o $(OBJ)/FInteraction.o $(OBJ)/CollisionDetermination.o $(OBJ)/jae.o $(OBJ)/ImpulsiveCollision.o
+
+$(BIN)/jae: $(MKDIR) $(OBJS)
+	$(CC) $(OBJS) $(LIBD) -o $(BIN)/jae
 
 $(OBJ):
 	mkdir $(OBJ)
@@ -41,4 +45,10 @@ clean:
 	rm -f $(OBJ)/*; rm -f $(BIN)/*; rm -f $(LIB)/*
 
 $(OBJ)/%.o: %.cpp %.hpp
+	$(CC) $(CPPFLAGS) -c $< -o $@
+
+$(OBJ)/%.o: %.c %.h
+	$(CC) $(CPPFLAGS) -c $< -o $@
+
+$(OBJ)/%.o: %.cpp
 	$(CC) $(CPPFLAGS) -c $< -o $@

@@ -23,7 +23,7 @@
 #ifndef JAEPHYS_EDGE_HPP
 #define JAEPHYS_EDGE_HPP
 
-#include "Coord3d.hpp"
+#include "Coord3D.hpp"
 #include "Vertex.hpp"
 
 #include <vector>
@@ -38,43 +38,43 @@ namespace jaephys
     Edge();
     Edge( const Edge & other);
     Edge & operator=( const Edge &); 
-		Edge(vector<Vertex>* vPoint) { vPoint_= vPoint;}
+		Edge(std::vector<Vertex>* vPoint, std::vector<Polygon>* vPol);
 
-		void vertexes(vector<Vertex>* vPoint) { vPoint_= vPoint;}
-		void polygons(vector<Polygon>* vPol) { vPol_= vPol;}
+		void vertexes(std::vector<Vertex>* vPoint) { vPoint_= vPoint;}
+		void polygons(std::vector<Polygon>* vPol) { vPol_= vPol;}
 		void ends(int iEnd1, int iEnd2) { iEnd1_= iEnd1; iEnd2_= iEnd2;}
 		void isPartOf(int iPol1, int iPol2) { iPol1_= iPol1; iPol2_= iPol2;}
 
-    const Coord3d & end1() const;
-    const Coord3d & end2() const;
+    const Coord3D & end1() const;
+    const Coord3D & end2() const;
     int endIndex1() const { return iEnd1_;}
     int endIndex2() const { return iEnd2_;}
 
-    const Coord3d & direction();
-    const Coord3d & normal();
+    const Coord3D & direction();
+    const Coord3D & normal();
     
     bool operator==(const Edge &) const;
-    bool contains( const Coord3d & point, double error=ERROR_MARGIN);
+    bool contains( const Coord3D & point, double error=ERROR_MARGIN);
 
   private:
 		void Edge::updateDirection();
 		
-		vector<Vertex>* vPoint_;  //pointer to the container of vertex
+		std::vector<Vertex>* vPoint_;  //pointer to the container of vertex
     
     int iEnd1_;               // indexes of ends relative to vPoint_
     int iEnd2_;
     
-    Coord3d direction_;       // edge direction (from end1 to end2)
+    Coord3D direction_;       // edge direction (from end1 to end2)
 
-		vector<Polygon>* vPol_;   // pointer to the container of polygons
+		std::vector<Polygon>* vPol_;   // pointer to the container of polygons
 		
 		int iPol1_;               // indexes of polygons joined by this edge
 		int iPol2_;
 		
-    Coord3d normal_;          // normal vector at the joint
+    Coord3D normal_;          // normal std::vector at the joint
   };
 
-  ostream & operator<< ( ostream & os, const Edge & edge);
+  std::ostream & operator<< ( std::ostream & os, const Edge & edge);
 
 } // jaephys
 #endif // JAEPHYS_EDGE_HPP

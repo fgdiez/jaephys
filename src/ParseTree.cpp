@@ -21,10 +21,11 @@
 
 
 #include "ParseTree.hpp"
+#include <iostream>
 
 using namespace jaephys;
 
-ParseTree::ParseTree(const string& token, const string& value)
+ParseTree::ParseTree(const std::string& token, const std::string& value)
 : token_(token)
 , value_(value)
 , index_(0)
@@ -43,7 +44,7 @@ ParseTree::ParseTree(const ParseTree& other)
 {
   token_ = other.token_;
   value_ = other.value_;
-  sons_ = other.sons_;
+  children_ = other.children_;
 }
 
 ParseTree& ParseTree::operator=(const ParseTree& other)
@@ -51,7 +52,7 @@ ParseTree& ParseTree::operator=(const ParseTree& other)
   index_ = 0;
   token_ = other.token_;
   value_ = other.value_;
-  sons_ = other.sons_;
+  children_ = other.children_;
   return *this;
 }
   
@@ -60,34 +61,34 @@ void ParseTree::iniIteration()
   index_ = 0;
 }
 
-ParseTree* ParseTree::nextSon()
+ParseTree* ParseTree::nextChild()
 {
-  if(sons_.size() <= index_)
+  if(children_.size() <= index_)
     return 0;
       
-  ParseTree* tree= &(sons_[index_]);
+  ParseTree* tree= &(children_[index_]);
   ++index_;
   return tree;
 }
 
-ParseTree& ParseTree::createSon(const string& token, const string& value)
+ParseTree& ParseTree::createChild(const std::string& token, const std::string& value)
 {
-  sons_.push_back(ParseTree(token,value));
-  return sons_[sons_.size() -1];
+  children_.push_back(ParseTree(token,value));
+  return children_[children_.size() -1];
 }
 
-void ParseTree::print(const string& margin)
+void ParseTree::print(const std::string& margin)
 {
-  cout << margin << token_ << "\t" << value_ << endl;
+  std::cout << margin << token_ << "\t" << value_ << std::endl;
   iniIteration();
-  string son_margin = margin + "\t";
+  std::string child_margin = margin + "\t";
 
-  for( ParseTree* a = nextSon()
+  for( ParseTree* a = nextChild()
      ; a != 0
-     ; a = nextSon()
+     ; a = nextChild()
      )
   {
-    a->print(son_margin);
+    a->print(child_margin);
   }
   
 }

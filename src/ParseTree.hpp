@@ -8,12 +8,12 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
-
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
-
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -33,28 +33,28 @@ namespace jaephys
 	public:
 	  // constructors & copy operator
     ParseTree();
-	  ParseTree(const string& token, const string& value);
+	  ParseTree( const std::string & token, const std::string & value );
     ParseTree(const ParseTree& other);
     ParseTree& operator=(const ParseTree& other);
 
     // iteration
 	  void iniIteration();
-	  ParseTree* nextSon();
+	  ParseTree* nextChild();
 
     // modification
-	  ParseTree& createSon(const string& token, const string& value);
+	  ParseTree& createChild(const std::string& token, const std::string& value);
 
     // observation
-    void print(const string& margin= "");
+    void print(const std::string& margin= "");
 
     // attributes 
-	  string token_;
-	  string value_;
+	  std::string token_;
+	  std::string value_;
 	  
 	protected:
 	  // attributes
 	  unsigned int index_;
-	  vector<ParseTree> sons_;
+	  std::vector<ParseTree> children_;
 	};
 
 }

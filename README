@@ -16,3 +16,39 @@ Requirements
 ============
 Jaephys requires GL(tested with Mesa and xlibmesa), GLUT and SVGALIB.
 
+Compiling
+=========
+Just be sure to have installed the required libraries and do "make" in the
+root directory of the project (i.e. in the directory "jaephys"). Hopefully
+there must be an executable file in the directory "jaephys/bin".
+
+Testing
+=======
+You can run the examples in the directory "samples" for testing purposes.
+
+Changing the point of view
+==========================
+You can move the camera (i.e. the point of view) with the following keys:
+
+q  move closer
+e  move farther
+
+w  move up
+s  move down
+
+a  move left
+d  move right
+
+r  rotate Z negative
+y  rotate Z positive
+
+t  rotate up
+g  rotate down
+
+f  rotate left
+h  rotate right
+
+Other keys
+==========
+p  pause/unpause
+k  terminate simulation

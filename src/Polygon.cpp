@@ -8,12 +8,12 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
-
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
-
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -60,7 +60,7 @@ Polygon::numberOfEdges() const
 }
 
 //////////////////////////////////////////////////////////////////////////////
-const Coord3d &
+const Coord3D &
 Polygon::normal()
 {
 	updateNormal();
@@ -75,10 +75,10 @@ Polygon::normal()
 //   la normal.
 // 
 Logical
-Polygon::isInside(const Coord3d & point)
+Polygon::isInside(const Coord3D & point)
 {
 	updateNormal();
-	return isPlaneInsidePoint(normal_, vEdge_[0].end1(), point);
+	return isInsideThePlane(normal_, vEdge_[0].end1(), point);
 }
 
 void
@@ -93,9 +93,9 @@ Polygon::updateNormal()
 //   to the polygon
 //   
 bool
-Polygon::contains ( const Coord3d & point, double error)
+Polygon::contains ( const Coord3D & point, double error)
 {
-  Coord3d edgeNormal;
+  Coord3D edgeNormal;
 
 	updateNormal();
   
@@ -103,7 +103,7 @@ Polygon::contains ( const Coord3d & point, double error)
   {
     edgeNormal.assignCrossProduct( vEdge_[i].direction(), normal_);
 
-    if( isPlaneInsidePoint( edgeNormal, vEdge_[i].end1(), point, error)
+    if( isInsideThePlane( edgeNormal, vEdge_[i].end1(), point, error)
         == NO )
     {
       return false;
@@ -113,10 +113,10 @@ Polygon::contains ( const Coord3d & point, double error)
 }
 
 //////////////////////////////////////////////////////////////////////////////
-ostream & 
-jaephys::operator<< ( ostream & os, const Polygon & polygon)
+std::ostream & 
+jaephys::operator<< ( std::ostream & os, const Polygon & polygon)
 {
-  os << "( " << polygon.edge(0) << endl;
+  os << "( " << polygon.edge(0) << std::endl;
   
   for
    ( unsigned int i = 1
@@ -124,9 +124,9 @@ jaephys::operator<< ( ostream & os, const Polygon & polygon)
    ; ++i
    )
   {
-    os << "," << polygon.edge(i) << endl;
+    os << "," << polygon.edge(i) << std::endl;
   }
-  os << ")" << endl;
+  os << ")" << std::endl;
 
   return os;
 }

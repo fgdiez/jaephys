@@ -23,7 +23,7 @@
 #ifndef JAEPHYS_SHAPE_HPP
 #define JAEPHYS_SHAPE_HPP
 
-#include "Coord3d.hpp"
+#include "Coord3D.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 namespace jaephys
@@ -34,14 +34,14 @@ namespace jaephys
 	  Shape();
     virtual ~Shape();
     
-	  virtual void translate( const Coord3d & vector)=0;
-	  virtual void rota( const Coord3d & axis, const double angle)=0;
+	  virtual void translate( const Coord3D & vector)=0;
+	  virtual void rotate( const Coord3D & w )=0;
 
-	  const Coord3d & centre() const { return centre_;}
+	  const Coord3D & centre() const { return centre_;}
     const unsigned int & id() const { return id_;}
     
 	protected:
-	  Coord3d centre_;
+	  Coord3D centre_;
 	  unsigned int id_;
     static unsigned int idCounter_;
     	  
