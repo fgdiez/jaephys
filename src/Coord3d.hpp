@@ -24,7 +24,7 @@
 #define JAEPHYS_COORD3D_HPP
 
 #include "const_enum_typedef.h"
-#include <strstream>
+#include <sstream>
 #include <iostream>
 
 namespace jaephys
@@ -68,7 +68,7 @@ namespace jaephys
   {
     bool operator()(const Coord3d & a, const Coord3d & b)
     {
-      strstream s1, s2;
+      stringstream s1, s2;
       s1 << a;
       s2 << b;
       return strcmp(s1.str(), s2.str());

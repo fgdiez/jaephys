@@ -23,7 +23,7 @@
 #include "ParseTree.hpp"
 
 #include <fstream>
-#include <strstream>
+#include <sstream>
 
 #include "debugging.h"
 
@@ -36,7 +36,7 @@ void Parser::createParseTree(const char* filename, ParseTree*& tree)
   std::ifstream fich(filename);
   GUARANTEE(fich.is_open(), "El file " << filename << " no se pudo abrir");
 
-  std::strstream ss;
+  std::stringstream ss;
   ss  << fich.rdbuf();
 
   filename_ = ss.str();

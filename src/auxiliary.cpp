@@ -24,7 +24,7 @@
 #include <string.h>
 
 #include <iostream>
-#include <strstream>
+#include <sstream>
 
 using namespace jaephys;
 
@@ -35,7 +35,7 @@ bool equal_char::operator()( const char* s1, const char* s2)
 
 void jaephys::str2Double( const std::string & orig, double & dest )
 {
-	std::strstream aux;
+	std::stringstream aux;
 	aux << orig;
 	aux >> dest;
 }

@@ -137,13 +137,13 @@ void FDisplay::createDisplay2D(ParseTree& tree)
 	  }
 	  else if(child->token_ == "width")
 	  {
-	    strstream ss;
+	    stringstream ss;
 	    ss << child->value_;
 	    ss >> width;
 	  }
 	  else if(child->token_ == "height")
 	  {
-	    strstream ss;
+	    stringstream ss;
 	    ss << child->value_;
 	    ss >> height;
 	  }

@@ -112,7 +112,7 @@ void FEntity::createAppearence( ParseTree& tree, Entity & entity )
               "<appearence\\ TEXTURE>" << endl <<
               "  <file nombreFichero>"<< endl <<
               "<\appearence>");
-    strstream filename;
+    stringstream filename;
     filename << child->value_;
     char fich[100];
     filename >> fich;

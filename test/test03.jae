@@ -59,7 +59,7 @@
 
 	  <attrib\ double>
 	    <concept Mass>
-	    <value 1e3>
+	    <value 1e10>
 	  <\attrib>
 
 	  <attrib\ Coord3D> 
@@ -93,7 +93,7 @@
 
 	  <attrib\ double>
 	    <concept Mass>
-	    <value 1e3>
+	    <value 1e10>
 	  <\attrib>
 
 	  <attrib\ Coord3D> 
@@ -126,7 +126,7 @@
 
 	  <attrib\ double>
 	    <concept Mass>
-	    <value 1e3>
+	    <value 1e10>
 	  <\attrib>
 
 	  <attrib\ Coord3D> 

@@ -20,7 +20,7 @@
 
 	  <attrib\ double>
 	    <concept Mass>
-	    <value 1e15>
+	    <value 1e6>
 	  <\attrib>
 
 	  <attrib\ Coord3D> 

@@ -53,7 +53,7 @@
 
 		<attrib\ Coord3D>
 			<concept LinearVelocity>
-			<value 100,0,0>
+			<value 100,100,-100>
 		<\attrib>
 
 		<attrib\ Coord3D>
