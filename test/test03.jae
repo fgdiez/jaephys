@@ -1,0 +1,154 @@
+<scene\>
+  <display\ 3D>
+    <type GL>
+    <width 500>
+    <height  500>
+  <\display>
+
+	<entity\ body1>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape PYRAMID>
+	    <baseDiagonal 60>
+      <height 60>
+	    <position 0,0,-1000> 
+	  <\attrib>
+	  
+	  <attrib\ Coord3D> 
+	    <concept LinearVelocity>
+	    <value 0,0,0> 
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Acceleration>
+	    <value 0,0,0> 
+	  <\attrib>
+
+	  <attrib\ double>
+	    <concept Mass>
+	    <value 1e11>
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Color>
+	    <value 255, 100, 100> 
+	  <\attrib>
+
+	  <anim A_MOTION>
+
+	  <appearence FLATCOLOR>
+	<\entity>
+
+	<entity\ body2>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape CUBE>
+	    <side 50>
+	    <position 300,0,-1000> 
+	  <\attrib>
+	  
+	  <attrib\ Coord3D> 
+	    <concept LinearVelocity>
+	    <value 0,150,0> 
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Acceleration>
+	    <value 0,0,0> 
+	  <\attrib>
+
+	  <attrib\ double>
+	    <concept Mass>
+	    <value 1e3>
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Color>
+	    <value 255, 200, 100> 
+	  <\attrib>
+
+	  <anim A_MOTION>
+
+	  <appearence FLATCOLOR>
+	<\entity>
+
+	<entity\ body3>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape PYRAMID>
+	    <baseDiagonal 60>
+      <height 60>
+	    <position -300,0,-1000> 
+	  <\attrib>
+	  
+	  <attrib\ Coord3D> 
+	    <concept LinearVelocity>
+	    <value 0,-150,0> 
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Acceleration>
+	    <value 0,0,0> 
+	  <\attrib>
+
+	  <attrib\ double>
+	    <concept Mass>
+	    <value 1e3>
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Color>
+	    <value 100, 100, 255> 
+	  <\attrib>
+
+	  <anim A_MOTION>
+
+	  <appearence FLATCOLOR>
+	<\entity>
+
+	<entity\ body4>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape CUBE>
+	    <side 50>
+	    <position 0,-400,-1000> 
+	  <\attrib>
+	  
+	  <attrib\ Coord3D> 
+	    <concept LinearVelocity>
+	    <value 100,0,0> 
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Acceleration>
+	    <value 0,0,0> 
+	  <\attrib>
+
+	  <attrib\ double>
+	    <concept Mass>
+	    <value 1e3>
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Color>
+	    <value 100, 255, 255> 
+	  <\attrib>
+
+	  <anim A_MOTION>
+
+	  <appearence FLATCOLOR>
+	<\entity>
+
+	<interaction\ inter1>
+	  <type GRAVITATION>
+	  <entities body1,body2,body3,body4>
+	<\interaction>
+
+  <interaction\ inter2>
+    <type COLLISION>
+    <subtype PARTICLE>
+    <relacion EXTERNAL>
+    <entities body1,body2,body3,body4>
+  <\interaction>
+
+<\scene>

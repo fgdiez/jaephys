@@ -1,0 +1,91 @@
+<scene\>
+	<display\ 3D>
+		<type GL>
+		<width 500>
+		<height 400>
+	<\display>
+
+	<entity\ box>
+		<attrib\ PolygonalShape>
+			<concept Shape>
+			<position 0,0,-600>
+			<shape CUBE>
+			<side 300>
+		<\attrib>
+
+		<attrib\ Coord3D>
+			<concept LinearVelocity>
+			<value 0,0,0>
+		<\attrib>
+
+		<attrib\ Coord3D>
+			<concept AngularVelocity>
+			<value 0,0,0>
+		<\attrib>
+
+		<attrib\ Coord3D>
+			<concept AngularMomentum>
+			<value 0,0,0>
+		<\attrib>
+
+		<attrib\ double>
+			<concept Mass>
+			<value 1e10>
+		<\attrib>
+
+		<attrib\ Coord3D>
+			<concept Color>
+			<value 200,200,200>
+		<\attrib>
+
+		<appearence WIRE>
+		<anim RT_MOTION>
+	<\entity>
+
+
+	<entity\ content>
+		<attrib\ PolygonalShape>
+			<concept Shape>
+			<position 0,0,-600>
+			<shape CUBE>
+			<side 100>
+		<\attrib>
+
+		<attrib\ Coord3D>
+			<concept LinearVelocity>
+			<value 100,0,0>
+		<\attrib>
+
+		<attrib\ Coord3D>
+			<concept AngularVelocity>
+			<value 0,0.3,0.3>
+		<\attrib>
+
+		<attrib\ Coord3D>
+			<concept AngularMomentum>
+			<value 0,0,0>
+		<\attrib>
+
+		<attrib\ double>
+			<concept Mass>
+			<value 1e1>
+		<\attrib>
+
+		<attrib\ Coord3D>
+			<concept Color>
+			<value 200,30,30>
+		<\attrib>
+
+		<appearence FLATCOLOR>
+		<anim RT_MOTION>
+
+	<\entity>
+
+	<interaction\>
+		<type COLLISION>
+		<subtype IMPULSIVE>
+		<relation CONTAINER-CONTAINED>
+		<container box>
+		<contained content>
+	<\interaction>
+<\scene>

@@ -1,0 +1,184 @@
+<scene\>
+  <display\ 3D>
+    <type GL>
+    <width 500>
+    <height  500>
+  <\display>
+
+	<entity\ box1>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape CUBE>
+	    <side 400>
+	    <position 0,0,-600> 
+	  <\attrib>
+	  
+	  <attrib\ Coord3D> 
+	    <concept LinearVelocity>
+	    <value 0,0,0> 
+	  <\attrib>
+
+	  <attrib\ double>
+	    <concept Mass>
+	    <value 1e15>
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Color>
+	    <value 255, 255, 255>
+	  <\attrib>
+
+	  <appearence WIRE>
+	  <anim CV_MOTION>
+	<\entity>
+
+	<entity\ box2>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape CUBE>
+	    <side 150>
+	    <position -100,0,-600> 
+	  <\attrib>
+	  
+	  <attrib\ Coord3D> 
+	    <concept LinearVelocity>
+	    <value -100,0,0> 
+	  <\attrib>
+
+	  <attrib\ double>
+	    <concept Mass>
+	    <value 1e5>
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Color>
+	    <value 200, 100, 100>
+	  <\attrib>
+
+	  <appearence WIRE>
+	  <anim CV_MOTION>
+	<\entity>
+
+	<entity\ box3>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape CUBE>
+	    <side 145>
+	    <position 100,0,-600> 
+	  <\attrib>
+	  
+	  <attrib\ Coord3D> 
+	    <concept LinearVelocity>
+	    <value 100,0,0> 
+	  <\attrib>
+
+	  <attrib\ double>
+	    <concept Mass>
+	    <value 1e5>
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Color>
+	    <value 100, 200, 100>
+	  <\attrib>
+
+	  <appearence WIRE>
+	  <anim CV_MOTION>
+	<\entity>
+
+	<entity\ cube1>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape CUBE>
+	    <side 45>
+	    <position -100,0,-600> 
+	  <\attrib>
+	  
+	  <attrib\ Coord3D> 
+	    <concept LinearVelocity>
+	    <value 0,100,-50> 
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept AngularVelocity>
+	    <value 0.5,0.5,-0.5> 
+	  <\attrib>
+
+	  <attrib\ double>
+	    <concept Mass>
+	    <value 1e2>
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Color>
+	    <value 100, 100, 200>
+	  <\attrib>
+
+	  <appearence FLATCOLOR>
+	  <anim RT_MOTION>
+	<\entity>
+
+	<entity\ cube2>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape CUBE>
+	    <side 45>
+	    <position 100,0,-600> 
+	  <\attrib>
+	  
+	  <attrib\ Coord3D> 
+	    <concept LinearVelocity>
+	    <value 0,100,50> 
+	  <\attrib>
+
+	  <attrib\ double>
+	    <concept Mass>
+	    <value 1e2>
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept Color>
+	    <value 200, 100, 200>
+	  <\attrib>
+
+	  <attrib\ Coord3D> 
+	    <concept AngularVelocity>
+	    <value 0.7,0.3,0.5> 
+	  <\attrib>
+
+	  <appearence FLATCOLOR>
+	  <anim RT_MOTION>
+	<\entity>
+
+  <interaction\ i1>
+    <type COLLISION>
+    <subtype PARTICLE>
+    <relation CONTAINER-CONTAINED>
+    <container box1>
+    <contained box2,box3>
+  <\interaction >
+
+  <interaction\ i2>
+    <type COLLISION>
+    <subtype PARTICLE>
+    <relation EXTERNAL>
+    <entities box2, box3>
+  <\interaction>
+
+  <interaction\ i3>
+    <type COLLISION>
+    <subtype PARTICLE>
+    <relation CONTAINER-CONTAINED>
+    <container box2>
+    <contained cube1>
+  <\interaction >
+
+  <interaction\ i4>
+    <type COLLISION>
+    <subtype PARTICLE>
+    <relation CONTAINER-CONTAINED>
+    <container box3>
+    <contained cube2>
+  <\interaction >
+
+<\scene>

@@ -1,0 +1,157 @@
+<scene\>
+  <display\ 3D>
+    <type GL>
+    <width 600>
+    <height  600>
+  <\display>
+
+	<entity\ box>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape CUBE>
+	    <side 400>
+	    <position 0,0,-1000> 
+	  <\attrib>
+	  
+		<attrib\ Coord3D>
+			<concept Color>
+			<value 200,200,200>
+		<\attrib>
+
+		<attrib\ Coord3D>
+      <concept Acceleration>
+      <value 0,0,0>
+    <\attrib>
+
+		<attrib\ Coord3D>
+      <concept LinearVelocity>
+      <value 0,0,0>
+    <\attrib>
+
+		<attrib\ double>
+      <concept Mass>
+      <value 1e10>
+    <\attrib>
+
+	  <anim CV_MOTION>
+
+	  <appearence WIRE>
+	<\entity>
+
+	<entity\ cube1>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape CUBE>
+	    <side 95>
+	    <position -100,0,-1000> 
+	  <\attrib>
+	  
+		<attrib\ Coord3D>
+			<concept Color>
+			<value 200,200,0>
+		<\attrib>
+
+		<attrib\ Coord3D>
+      <concept Acceleration>
+      <value 0,0,0>
+    <\attrib>
+
+		<attrib\ Coord3D>
+      <concept LinearVelocity>
+      <value -100,0,0>
+    <\attrib>
+
+		<attrib\ double>
+      <concept Mass>
+      <value 1>
+    <\attrib>
+
+	  <anim CV_MOTION>
+
+	  <appearence FLATCOLOR>
+	<\entity>
+
+	<entity\ cube2>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape CUBE>
+	    <side 100>
+	    <position 0,0,-1000> 
+	  <\attrib>
+	  
+		<attrib\ Coord3D>
+			<concept Color>
+			<value 0,100,500>
+		<\attrib>
+
+		<attrib\ Coord3D>
+      <concept LinearVelocity>
+      <value 0,0,0>
+    <\attrib>
+
+		<attrib\ double>
+      <concept Mass>
+      <value 1>
+    <\attrib>
+
+	  <anim CV_MOTION>
+
+	  <appearence FLATCOLOR>
+	<\entity>
+
+	<entity\ cube3>
+	  <attrib\ PolygonalShape>
+	    <concept Shape>
+	    <shape CUBE>
+	    <side 95>
+	    <position 100,0,-1000> 
+	  <\attrib>
+	  
+		<attrib\ Coord3D>
+			<concept Color>
+			<value 0,200,0>
+		<\attrib>
+
+		<attrib\ Coord3D>
+      <concept Acceleration>
+      <value 0,0,0>
+    <\attrib>
+
+		<attrib\ Coord3D>
+      <concept LinearVelocity>
+      <value 0,0,0>
+    <\attrib>
+
+		<attrib\ double>
+      <concept Mass>
+      <value 1>
+    <\attrib>
+
+	  <anim CV_MOTION>
+
+	  <appearence FLATCOLOR>
+	<\entity>
+
+	<interaction\ inter1>
+	  <type COLLISION>
+		<subtype PARTICLE>
+		<relation EXTERNAL>
+	  <entities cube1, cube2>
+	<\interaction>
+
+	<interaction\ inter2>
+	  <type COLLISION>
+		<subtype PARTICLE>
+		<relation EXTERNAL>
+	  <entities cube2, cube3>
+	<\interaction>
+
+	<interaction\ inter3>
+	  <type COLLISION>
+		<subtype PARTICLE>
+		<relation CONTAINER-CONTAINED>
+	  <container box>
+		<contained cube1,cube2,cube3>
+	<\interaction>
+
+<\scene>
