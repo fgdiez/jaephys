@@ -25,6 +25,7 @@
 #include "Geometry.hpp"
 
 #include "debugging.h"
+#include <assert.h>
 
 using namespace jaephys;
 

@@ -34,3 +34,8 @@ Shape::Shape()
 Shape::~Shape()
 {
 }
+
+Shape::Shape( const Shape & other )
+  : centre_( other.centre_)
+{
+}

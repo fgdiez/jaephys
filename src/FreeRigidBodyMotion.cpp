@@ -29,18 +29,18 @@ using namespace jaephys;
 FreeRigidBodyMotion::FreeRigidBodyMotion( Entity & entity )
 {
   shape_ = dynamic_cast< PolygonalShape* >(
-      entity.template findAttribute< Shape >( "Shape"));
+      entity.findAttribute< Shape >( "Shape"));
   
-  v_ = entity.template findAttribute< Coord3D >( "LinearVelocity");
+  v_ = entity.findAttribute< Coord3D >( "LinearVelocity");
   GUARANTEE(v_!=0,"LinearVelocity not found");
 
-  L_ = entity.template findAttribute< Coord3D >( "AngularMomentum");
+  L_ = entity.findAttribute< Coord3D >( "AngularMomentum");
   GUARANTEE(L_!=0,"AngularMomentum not found");
 
-  w_ = entity.template findAttribute< Coord3D >( "AngularVelocity");
+  w_ = entity.findAttribute< Coord3D >( "AngularVelocity");
   GUARANTEE(w_!=0,"AngularVelocity not found");
 
-  mass_ = entity.template findAttribute<double>( "Mass");
+  mass_ = entity.findAttribute<double>( "Mass");
   GUARANTEE(mass_!=0,"Mass not found");
 
   getAngularMomentum(*shape_, *w_, *mass_, *L_);

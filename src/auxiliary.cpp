@@ -26,6 +26,8 @@
 #include <iostream>
 #include <sstream>
 
+#include <assert.h>
+
 using namespace jaephys;
 
 bool equal_char::operator()( const char* s1, const char* s2)

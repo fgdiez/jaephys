@@ -22,6 +22,9 @@
 
 #include "Vertex.hpp"
 #include "Polygon.hpp"
+
+#include <assert.h>
+
 using namespace jaephys;
 
 Vertex::Vertex()

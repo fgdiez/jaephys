@@ -30,7 +30,9 @@ using namespace jaephys;
 
 //////////////////////////////////////////////////////////////////////////////
 PolygonalShape::PolygonalShape( const PolygonalShape& other)
-{
+: Shape( other )
+{ 
+  
   TRACEC(JAEPHYS_SHAPE,1,"entra");
 
   vPoint_ = other.vPoint_;

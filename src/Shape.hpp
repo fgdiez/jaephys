@@ -28,27 +28,28 @@
 ///////////////////////////////////////////////////////////////////////////////
 namespace jaephys
 {
-	class Shape
-	{
-	public:
-	  Shape();
+  class Shape
+  {
+  public:
+    Shape();
     virtual ~Shape();
     
-	  virtual void translate( const Coord3D & vector)=0;
-	  virtual void rotate( const Coord3D & w )=0;
+    virtual void translate( const Coord3D & vector)=0;
+    virtual void rotate( const Coord3D & w )=0;
 
-	  const Coord3D & centre() const { return centre_;}
+    const Coord3D & centre() const { return centre_;}
     const unsigned int & id() const { return id_;}
     
-	protected:
-	  Coord3D centre_;
-	  unsigned int id_;
+  protected:
+    Shape(const Shape &);
+
+    Coord3D centre_;
+    unsigned int id_;
     static unsigned int idCounter_;
     	  
-	private:
-	  Shape(const Shape &);
-	  Shape & operator==( const Shape &);
-	};
+  private:
+    Shape & operator==( const Shape &);
+  };
 }
 
 #endif // JAEPHYS_SHAPE_HPP

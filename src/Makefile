@@ -20,14 +20,14 @@
 ##############################################################################
 
 
-CPPFLAGS=-W -Wall -pipe -O2
-CC=g++
+CPPFLAGS=-W -Wall
+CC=gcc
 SRC=.
 OBJ=.obj
 BIN=../bin
 MKDIR=$(BIN) $(OBJ)
 
-LIBD= -lglut32 -lopengl32 -lglu32 
+LIBD= -lglut -lGL -lGLU -L /usr/X11R6/lib 
 
 OBJS=$(OBJ)/Algorithm.o $(OBJ)/ParseTree.o $(OBJ)/Edge.o $(OBJ)/Vertex.o $(OBJ)/Polygon.o $(OBJ)/PolygonalShape.o $(OBJ)/Coord3D.o $(OBJ)/Shape.o $(OBJ)/Geometry.o $(OBJ)/Entity.o $(OBJ)/auxiliary.o $(OBJ)/ConstantVelocityMotion.o $(OBJ)/RotationTranslationMotion.o $(OBJ)/AcceleratedMotion.o $(OBJ)/FreeRigidBodyMotion.o $(OBJ)/Display3D.o $(OBJ)/FlatColorAppearence.o $(OBJ)/WireAppearence.o $(OBJ)/PunkWireAppearence.o $(OBJ)/FEntity.o $(OBJ)/Interaction.o $(OBJ)/Display3D_gl.o $(OBJ)/FDisplay.o $(OBJ)/ParticleCollision.o $(OBJ)/Keyboard.o $(OBJ)/Parser.o $(OBJ)/Demiurge.o $(OBJ)/CollisionDetection.o $(OBJ)/Gravitation.o $(OBJ)/FInteraction.o $(OBJ)/CollisionDetermination.o $(OBJ)/jae.o $(OBJ)/ImpulsiveCollision.o
 
