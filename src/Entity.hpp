@@ -43,6 +43,7 @@ namespace jaephys
     ~Entity();
     
     void addAttribute( Attribute* attrib );
+    Attribute* getAttribute( const char* attrName );
     void setAppearence( Algorithm* appearence );
     void setAnimation( AnimationAlgorithm* animation );
 
@@ -73,24 +74,23 @@ namespace jaephys
   template <class T> inline 
   T* Entity::findAttribute( const char* concept )
   {
-    Attribute* attr;
-    for( unsigned int i=0; i< vAttrib_.size(); ++i )
-    {
-      attr = vAttrib_[i];
-      if( attr->concept() == concept )
-      {
-        TAttribute<T>* target = dynamic_cast< TAttribute<T>* >(attr);
+    Attribute* attr = this->getAttribute( concept );
 
-        if( !target)
-        {
-          TRACEC( JAEPHYS_ENT, 1, "Type="<< typeid(target->attrib_).name()<< 
-                                  " not compatible with concept=" << concept );
-          return 0;
-        }
-        return target->attrib_;
+    if( attr != 0 )
+    {
+      TAttribute<T>* target = dynamic_cast< TAttribute<T>* >(attr);
+
+      if( target != 0 )
+      {
+	return target->attrib_;
       }
+
+      TRACEC( JAEPHYS_ENT, 1, "Type="<< typeid(target->attrib_).name()<< 
+                                " not compatible with concept=" << concept );
+      return 0;
     }
-    TRACEC(JAEPHYS_ENT, 1, "Concept not found " << concept);
+    
+    TRACEC(JAEPHYS_ENT, 1, "Unable to find concept=" << concept);
     return 0;
   }
 
