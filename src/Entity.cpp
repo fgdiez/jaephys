@@ -88,3 +88,21 @@ void Entity::animationFactor(const double factor)
   TRACEC(JAEPHYS_ENT,2,"enter");
   animation_->setFactor(factor);
 }    
+
+Attribute* Entity::getAttribute( const char* concept )
+{
+  Attribute* attr;
+  
+  for( unsigned int i=0; i< vAttrib_.size(); ++i )
+  {
+    attr = vAttrib_[i];
+
+    if( attr->concept() == concept )
+    {
+      return attr;
+    }
+  }
+  TRACEC(JAEPHYS_ENT, 1, "Concept not found " << concept);
+
+  return 0;
+}
