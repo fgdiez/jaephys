@@ -20,35 +20,17 @@
  *****************************************************************************/
 
 
-#ifndef JAEPHYS_SHAPE_HPP
-#define JAEPHYS_SHAPE_HPP
+#include "Shape.hpp"
 
-#include "Coord3d.hpp"
+using namespace jaephys;
 
-///////////////////////////////////////////////////////////////////////////////
-namespace jaephys
+unsigned Shape::idCounter_= 1;
+
+Shape::Shape()
+: id_(idCounter_++)
 {
-	class Shape
-	{
-	public:
-	  Shape();
-    virtual ~Shape();
-    
-	  virtual void translate( const Coord3d & vector)=0;
-	  virtual void rota( const Coord3d & axis, const double angle)=0;
-
-	  const Coord3d & centre() const { return centre_;}
-    const unsigned int & id() const { return id_;}
-    
-	protected:
-	  Coord3d centre_;
-	  unsigned int id_;
-    static unsigned int idCounter_;
-    	  
-	private:
-	  Shape(const Shape &);
-	  Shape & operator==( const Shape &);
-	};
 }
 
-#endif // JAEPHYS_SHAPE_HPP
+Shape::~Shape()
+{
+}

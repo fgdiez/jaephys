@@ -20,7 +20,7 @@
 ##############################################################################
 
 
-CPPFLAGS=-W -Wall
+CPPFLAGS=-W -Wall -pipe -g
 CC=g++
 SRC=.
 OBJ=.obj
@@ -28,7 +28,7 @@ BIN=../bin
 LIB=../lib
 MKDIR=$(BIN) $(LIB) $(OBJ)
 
-ALL: $(MKDIR) $(OBJ)/Algorithm.o $(OBJ)/ParseTree.o $(OBJ)/Edge.o $(OBJ)/Vertex.o $(OBJ)/Polygon.o $(OBJ)/PolygonalShape.o
+ALL: $(MKDIR) $(OBJ)/Algorithm.o $(OBJ)/ParseTree.o $(OBJ)/Edge.o $(OBJ)/Vertex.o $(OBJ)/Polygon.o $(OBJ)/PolygonalShape.o $(OBJ)/Coord3d.o $(OBJ)/Shape.o
 
 $(OBJ):
 	mkdir $(OBJ)
