@@ -19,7 +19,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *****************************************************************************/
 
-
+#if 0
 #include "Coord3d.hpp"
 #include "Geometry.hpp"
 #include "debugging.h"
@@ -200,3 +200,4 @@ bool Coord3d::isNull(double error) const
          areEqual(y,0,error) && 
          areEqual(z,0,error);
 }
+#endif

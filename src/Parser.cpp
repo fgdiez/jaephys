@@ -92,7 +92,7 @@ bool Parser::nextPair_tokenValue(std::string& token, std::string& value)
 {
   index_ = filename_.find_first_of('<',index_);
 
-  unsigned int blockEnd= filename_.find_first_of('>',index_);
+  std::size_t blockEnd= filename_.find_first_of('>',index_);
   if(blockEnd == std::string::npos)
   {
     GUARANTEE(false, "Block not closed");

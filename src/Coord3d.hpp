@@ -19,8 +19,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *****************************************************************************/
 
-
-#ifndef JAEPHYS_COORD3D_HPP
+#if 0
+//#ifndef JAEPHYS_COORD3D_HPP
 #define JAEPHYS_COORD3D_HPP
 
 #include "const_enum_typedef.h"

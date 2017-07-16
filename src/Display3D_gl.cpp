@@ -48,6 +48,10 @@ Display3D_gl::Display3D_gl( unsigned int width, unsigned int height )
 
   TRACEC(JAEPHYS_DISP,1,"enter");
 
+  int argc = 1;
+  const char* argv[] = {"jaephys"};
+  glutInit( & argc, (char **)argv );
+
   glutInitWindowPosition(0, 0);
   glutInitWindowSize( width, height);
 

@@ -43,8 +43,8 @@ namespace jaephys
   void exit_callback();
   void pause_callback();
 
-  void jaephys::rotate_callback();
-  void jaephys::translate_callback();
+  void rotate_callback();
+  void translate_callback();
 }
 
 #endif //JAEPHYS_KEYBOARD_HPP

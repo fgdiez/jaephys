@@ -57,7 +57,7 @@ namespace jaephys
     bool contains( const Coord3D & point, double error=ERROR_MARGIN);
 
   private:
-		void Edge::updateDirection();
+		void updateDirection();
 		
 		std::vector<Vertex>* vPoint_;  //pointer to the container of vertex
     

@@ -74,7 +74,7 @@ namespace jaephys
       std::stringstream s1, s2;
       s1 << a;
       s2 << b;
-      return s1 == s2;
+      return s1.str() == s2.str();
     }
   };
   
